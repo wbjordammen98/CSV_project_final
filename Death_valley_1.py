@@ -1,7 +1,7 @@
 import csv
 from datetime import datetime
 
-open_file = open("sitka_weather_2018_simple.csv", "r")
+open_file = open("death_valley_2018_simple.csv", "r")
 csv_file = csv.reader(open_file, delimiter=",")
 header_row = next(csv_file)
 
@@ -43,8 +43,6 @@ plt.xlabel("", fontsize=12)
 plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 plt.ylabel("Temperature (F)", fontsize=16)
 plt.tick_params(axis="both",labelsize=16)
-
-print('hello')
 
 fig.autofmt_xdate()
 
