@@ -43,6 +43,8 @@ plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 plt.ylabel("Temperature (F)", fontsize=16)
 plt.tick_params(axis="both",labelsize=16)
 
+print('hello')
+
 fig.autofmt_xdate()
 
 plt.show()
