@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 print("\nSITKA RECORDS: \n")
 
 open_file_sitka = open('sitka_weather_2018_simple.csv', "r")
-csv_file_sitka = csv.reader(open_file_sitka, delimiter=",")
+csv_file_sitka = csv.DictReader(open_file_sitka, delimiter=",")
 header_row_sitka = next(csv_file_sitka)
 
 print(header_row_sitka)
@@ -17,11 +17,11 @@ sitka_highs = []
 sitka_lows = []
 sitka_dates = []
 
-for row_sitka in csv_file_sitka:
+for header_row_sitka in csv_file_sitka:
     try:
-        sitka_high = int(row_sitka[5])
-        sitka_low = int(row_sitka[6])
-        the_sitka_date = datetime.strptime(row_sitka[2], '%Y-%m-%d')
+        sitka_high = int(header_row_sitka['TMAX'])
+        sitka_low = int(header_row_sitka['TMIN'])
+        the_sitka_date = datetime.strptime(header_row_sitka['DATE'], '%Y-%m-%d')
     except ValueError:
         print(f"Missing data for {the_sitka_date}")
     else:
@@ -37,7 +37,7 @@ print(x)
 print("\n DEATH VALLEY: \n")
 
 open_file_DV = open('death_valley_2018_simple.csv', "r")
-csv_file_DV = csv.reader(open_file_DV, delimiter=",")
+csv_file_DV = csv.DictReader(open_file_DV, delimiter=",")
 header_row_DV = next(csv_file_DV)
 
 print(header_row_DV)
@@ -49,11 +49,11 @@ DV_highs = []
 DV_lows = []
 DV_dates = []
 
-for row_DV in csv_file_DV:
+for header_row_DV in csv_file_DV:
     try:
-        DV_high = int(row_DV[4])
-        DV_low = int(row_DV[5])
-        the_DV_date = datetime.strptime(row_DV[2], '%Y-%m-%d')
+        DV_high = int(header_row_DV['TMAX'])
+        DV_low = int(header_row_DV['TMIN'])
+        the_DV_date = datetime.strptime(header_row_DV['DATE'], '%Y-%m-%d')
     except ValueError:
         print(f"Missing data for {the_DV_date}")
     else:
